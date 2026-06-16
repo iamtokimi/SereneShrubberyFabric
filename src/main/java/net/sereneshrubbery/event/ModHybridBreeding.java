@@ -1,15 +1,12 @@
 package net.sereneshrubbery.event;
 
-import net.minecraft.advancement.AdvancementProgress;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.particle.ParticleTypes;
-import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
-import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.sereneshrubbery.ModBlocks;
@@ -25,7 +22,6 @@ public class ModHybridBreeding {
     private static final Map<Set<Block>, Block> TRIPLE_HYBRID_RECIPES = new HashMap<>();
     private static final Map<Block, Block> SAME_FLOWER_RECIPES = new HashMap<>();
 
-    // Timing constants (in milliseconds)
     private static final long MIN_BREEDING_TIME = 60_000;
     private static final long MAX_BREEDING_TIME = 600_000;
 
@@ -36,27 +32,22 @@ public class ModHybridBreeding {
     }
 
     private static void initHybridRecipes() {
-        // Foxglove hybrids
         addHybridRecipe(ModBlocks.PEACH_FOXGLOVE, ModBlocks.WHITE_FOXGLOVE, ModBlocks.SUNSET_FOXGLOVE);
         addHybridRecipe(ModBlocks.PURPLE_FOXGLOVE, ModBlocks.WHITE_FOXGLOVE, ModBlocks.LAVENDER_FOXGLOVE);
         addHybridRecipe(ModBlocks.PEACH_FOXGLOVE, ModBlocks.PURPLE_FOXGLOVE, ModBlocks.CANDY_MOUNTAIN_FOXGLOVE);
 
-        // Lupine hybrids
-        addSameFlowerRecipe(ModBlocks.LUPINE_WHITE, ModBlocks.GOLDEN_LUPINE); // White + White = Golden
+        addSameFlowerRecipe(ModBlocks.LUPINE_WHITE, ModBlocks.GOLDEN_LUPINE);
         addHybridRecipe(ModBlocks.LUPINE_WHITE, ModBlocks.PURPLE_LUPINE, ModBlocks.SKY_BLUE_LUPINE);
-        addTripleHybridRecipe(ModBlocks.GOLDEN_LUPINE, ModBlocks.PURPLE_LUPINE, ModBlocks.LUPINE_PINK, ModBlocks.MANHATTAN_LIGHTS_LUPINE); // Golden + Purple + Pink
+        addTripleHybridRecipe(ModBlocks.GOLDEN_LUPINE, ModBlocks.PURPLE_LUPINE, ModBlocks.LUPINE_PINK, ModBlocks.MANHATTAN_LIGHTS_LUPINE);
 
-        // Pansy hybrids
         addHybridRecipe(ModBlocks.RED_PANSIES, ModBlocks.YELLOW_PANSIES, ModBlocks.ORANGE_PANSIES);
         addHybridRecipe(ModBlocks.RED_PANSIES, ModBlocks.WHITE_PANSIES, ModBlocks.PINK_PANSIES);
         addHybridRecipe(ModBlocks.WHITE_PANSIES, ModBlocks.PURPLE_PANSIES, ModBlocks.BLUE_FROST_PANSIES);
-        addTripleHybridRecipe(ModBlocks.ORANGE_PANSIES, ModBlocks.YELLOW_PANSIES, ModBlocks.PINK_PANSIES, ModBlocks.SUNRISE_PANSIES); // Orange + Yellow + Pink
-        addHybridRecipe(ModBlocks.PINK_PANSIES, ModBlocks.WHITE_PANSIES, ModBlocks.PANOLA_PINK_PANSIES); // Pink + White
+        addTripleHybridRecipe(ModBlocks.ORANGE_PANSIES, ModBlocks.YELLOW_PANSIES, ModBlocks.PINK_PANSIES, ModBlocks.SUNRISE_PANSIES);
+        addHybridRecipe(ModBlocks.PINK_PANSIES, ModBlocks.WHITE_PANSIES, ModBlocks.PANOLA_PINK_PANSIES);
 
-        // Hydrangea hybrids
         addHybridRecipe(ModBlocks.RED_HYDRANGEA, ModBlocks.WHITE_HYDRANGEA, ModBlocks.PINK_HYDRANGEA);
 
-        // Halloween hybrids
         addHalloweenRecipe(ModBlocks.PURPLE_PANSIES, ModBlocks.ORANGE_PANSIES, ModBlocks.HALLOWEEN_PANSIES);
         addHalloweenRecipe(ModBlocks.PURPLE_FOXGLOVE, ModBlocks.SUNSET_FOXGLOVE, ModBlocks.HALLOWEEN_FOXGLOVE);
         addHalloweenRecipe(ModBlocks.PURPLE_HYDRANGEA, ModBlocks.RED_HYDRANGEA, ModBlocks.HALLOWEEN_HYDRANGEA);
@@ -92,11 +83,6 @@ public class ModHybridBreeding {
         return pos.getX() + "," + pos.getY() + "," + pos.getZ();
     }
 
-    /**
-     * @param world The server world
-     * @param pos Position of the flower receiving the random tick
-     * @param centerFlower The block at pos
-     */
     public static void tryBreedOnRandomTick(ServerWorld world, BlockPos pos, Block centerFlower) {
         BreedingResult potentialResult = findBreedingPartner(world, pos, centerFlower);
 
@@ -148,8 +134,6 @@ public class ModHybridBreeding {
             10, 0.3, 0.3, 0.3, 0.0);
 
         world.playSound(null, offspringPos, SoundEvents.BLOCK_GRASS_PLACE, SoundCategory.BLOCKS, 1.0f, 1.2f);
-
-        grantAdvancementToNearbyPlayers(world, pos);
     }
 
     public static void onFlowerBroken(ServerWorld world, BlockPos pos) {
@@ -286,34 +270,4 @@ public class ModHybridBreeding {
                block == Blocks.MOSS_BLOCK;
     }
 
-    private static void grantAdvancementToNearbyPlayers(ServerWorld world, BlockPos pos) {
-        world.getPlayers(player -> player.squaredDistanceTo(pos.getX(), pos.getY(), pos.getZ()) < 256)
-            .forEach(player -> {
-                try {
-                    grantAdvancement(player, world, "hybrid_flora");
-                    grantAdvancement(player, world, "gardeners_path");
-                } catch (Exception e) {
-                    SereneShrubbery.LOGGER.debug("Could not grant hybrid advancement: " + e.getMessage());
-                }
-            });
-    }
-
-    private static void grantAdvancement(ServerPlayerEntity player, ServerWorld serverWorld, String advancementName) {
-        //? if >=1.21 {
-        Identifier id = Identifier.of(SereneShrubbery.MOD_ID, advancementName);
-        //?} else {
-        /*Identifier id = new Identifier(SereneShrubbery.MOD_ID, advancementName);
-        *///?}
-
-        var server = serverWorld.getServer();
-        var advancementEntry = server.getAdvancementLoader().get(id);
-        if (advancementEntry != null) {
-            AdvancementProgress progress = player.getAdvancementTracker().getProgress(advancementEntry);
-            if (!progress.isDone()) {
-                for (String criterion : progress.getUnobtainedCriteria()) {
-                    player.getAdvancementTracker().grantCriterion(advancementEntry, criterion);
-                }
-            }
-        }
-    }
 }

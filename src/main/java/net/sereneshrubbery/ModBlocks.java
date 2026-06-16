@@ -26,7 +26,6 @@ import java.util.List;
 public class ModBlocks {
     private static final List<Block> ALL_BLOCKS = new ArrayList<>();
 
-    // Pansies
     public static final Block RED_PANSIES = registerFlower("red_pansies");
     public static final Block WHITE_PANSIES = registerFlower("white_pansies");
     public static final Block YELLOW_PANSIES = registerFlower("yellow_pansies");
@@ -38,7 +37,6 @@ public class ModBlocks {
     public static final Block SUNRISE_PANSIES = registerFlower("sunrise_pansies");
     public static final Block HALLOWEEN_PANSIES = registerFlower("halloween_pansies");
 
-    // Bloom Baskets
     public static final Block BLOOM_BASKET = registerBloomBasket("bloom_basket");
     public static final Block BLOOM_BASKET_RED_PANSIES = registerBloomBasket("bloom_basket_red_pansies");
     public static final Block BLOOM_BASKET_WHITE_PANSIES = registerBloomBasket("bloom_basket_white_pansies");
@@ -51,7 +49,6 @@ public class ModBlocks {
     public static final Block BLOOM_BASKET_HALLOWEEN_PANSIES = registerBloomBasket("bloom_basket_halloween_pansies");
     public static final Block BLOOM_BASKET_PANOLA_PANSIES = registerBloomBasket("bloom_basket_panola_pansies");
 
-    // Hydrangeas
     public static final Block HYDRANGEA = registerFlower("hydrangea");
     public static final Block PINK_HYDRANGEA = registerFlower("pink_hydrangea");
     public static final Block PURPLE_HYDRANGEA = registerFlower("purple_hydrangea");
@@ -59,7 +56,6 @@ public class ModBlocks {
     public static final Block WHITE_HYDRANGEA = registerFlower("white_hydrangea");
     public static final Block HALLOWEEN_HYDRANGEA = registerFlower("halloween_hydrangea");
 
-    // Foxgloves (tall flowers)
     public static final Block WHITE_FOXGLOVE = registerTallFlower("white_foxglove");
     public static final Block PURPLE_FOXGLOVE = registerTallFlower("purple_foxglove");
     public static final Block PEACH_FOXGLOVE = registerTallFlower("peach_foxglove");
@@ -68,7 +64,6 @@ public class ModBlocks {
     public static final Block CANDY_MOUNTAIN_FOXGLOVE = registerTallFlower("candy_mountain_foxglove");
     public static final Block LAVENDER_FOXGLOVE = registerTallFlower("lavender_foxglove");
 
-    // Lupines (tall flowers)
     public static final Block LUPINE_PINK = registerTallFlower("lupine_pink");
     public static final Block LUPINE_WHITE = registerTallFlower("lupine_white");
     public static final Block PURPLE_LUPINE = registerTallFlower("purple_lupine");
@@ -76,19 +71,15 @@ public class ModBlocks {
     public static final Block SKY_BLUE_LUPINE = registerTallFlower("sky_blue_lupine");
     public static final Block MANHATTAN_LIGHTS_LUPINE = registerTallFlower("manhattan_lights_lupine");
 
-    // Liverworts (carpet-like)
     public static final Block BLUE_LIVERWORT = registerLiverWort("blue_liverwort");
     public static final Block PURPLE_LIVERWORT = registerLiverWort("purple_liverwort");
     public static final Block WHITE_LIVERWORT = registerLiverWort("white_liverwort");
 
-    // Crown Cacti
     public static final Block ORANGE_CROWN_CACTUS = registerCactus("orange_crown_cactus");
     public static final Block PINK_CROWN_CACTUS = registerCactus("pink_crown_cactus");
 
-    // Blanketflower
     public static final Block BLANKETFLOWER = registerBlanketflower("blanketflower");
 
-    // Others
     public static final Block FIREWEED = registerTallFlower("fireweed");
     public static final Block BUTTERFLY_BUSH = registerButterflyBush("butterfly_bush");
     public static final Block TWINFLOWER = registerFlower("twinflower");
@@ -225,7 +216,6 @@ public class ModBlocks {
 
     public static List<Block> getAllFlowers() {
         List<Block> flowers = new ArrayList<>();
-        // Pansies
         flowers.add(RED_PANSIES);
         flowers.add(WHITE_PANSIES);
         flowers.add(YELLOW_PANSIES);
@@ -236,14 +226,12 @@ public class ModBlocks {
         flowers.add(PANOLA_PINK_PANSIES);
         flowers.add(SUNRISE_PANSIES);
         flowers.add(HALLOWEEN_PANSIES);
-        // Hydrangeas
         flowers.add(HYDRANGEA);
         flowers.add(PINK_HYDRANGEA);
         flowers.add(PURPLE_HYDRANGEA);
         flowers.add(RED_HYDRANGEA);
         flowers.add(WHITE_HYDRANGEA);
         flowers.add(HALLOWEEN_HYDRANGEA);
-        // Foxgloves
         flowers.add(WHITE_FOXGLOVE);
         flowers.add(PURPLE_FOXGLOVE);
         flowers.add(PEACH_FOXGLOVE);
@@ -251,20 +239,16 @@ public class ModBlocks {
         flowers.add(HALLOWEEN_FOXGLOVE);
         flowers.add(CANDY_MOUNTAIN_FOXGLOVE);
         flowers.add(LAVENDER_FOXGLOVE);
-        // Lupines
         flowers.add(LUPINE_PINK);
         flowers.add(LUPINE_WHITE);
         flowers.add(PURPLE_LUPINE);
         flowers.add(GOLDEN_LUPINE);
         flowers.add(SKY_BLUE_LUPINE);
         flowers.add(MANHATTAN_LIGHTS_LUPINE);
-        // Liverworts
         flowers.add(BLUE_LIVERWORT);
         flowers.add(PURPLE_LIVERWORT);
         flowers.add(WHITE_LIVERWORT);
-        // Blanketflower
         flowers.add(BLANKETFLOWER);
-        // Others
         flowers.add(FIREWEED);
         flowers.add(BUTTERFLY_BUSH);
         flowers.add(TWINFLOWER);
@@ -273,25 +257,21 @@ public class ModBlocks {
 
     public static List<Block> getHybridFlowers() {
         List<Block> hybrids = new ArrayList<>();
-        // Pansy hybrids
-        hybrids.add(ORANGE_PANSIES);      // Red + Yellow
-        hybrids.add(PINK_PANSIES);        // Red + White
-        hybrids.add(BLUE_FROST_PANSIES);  // White + Purple
-        hybrids.add(SUNRISE_PANSIES);     // Orange + Yellow + Pink
-        hybrids.add(PANOLA_PINK_PANSIES); // Pink + White
-        hybrids.add(HALLOWEEN_PANSIES);   // Purple + Orange (low light)
-        // Hydrangea hybrids
-        hybrids.add(PINK_HYDRANGEA);      // Red + White
-        hybrids.add(HALLOWEEN_HYDRANGEA); // Purple + Red (low light)
-        // Foxglove hybrids
-        hybrids.add(SUNSET_FOXGLOVE);         // Peach + White
-        hybrids.add(LAVENDER_FOXGLOVE);       // Purple + White
-        hybrids.add(CANDY_MOUNTAIN_FOXGLOVE); // Peach + Purple
-        hybrids.add(HALLOWEEN_FOXGLOVE);      // Purple + Sunset (low light)
-        // Lupine hybrids
-        hybrids.add(GOLDEN_LUPINE);           // White + White
-        hybrids.add(SKY_BLUE_LUPINE);         // White + Purple
-        hybrids.add(MANHATTAN_LIGHTS_LUPINE); // Golden + Purple + Pink
+        hybrids.add(ORANGE_PANSIES);
+        hybrids.add(PINK_PANSIES);
+        hybrids.add(BLUE_FROST_PANSIES);
+        hybrids.add(SUNRISE_PANSIES);
+        hybrids.add(PANOLA_PINK_PANSIES);
+        hybrids.add(HALLOWEEN_PANSIES);
+        hybrids.add(PINK_HYDRANGEA);
+        hybrids.add(HALLOWEEN_HYDRANGEA);
+        hybrids.add(SUNSET_FOXGLOVE);
+        hybrids.add(LAVENDER_FOXGLOVE);
+        hybrids.add(CANDY_MOUNTAIN_FOXGLOVE);
+        hybrids.add(HALLOWEEN_FOXGLOVE);
+        hybrids.add(GOLDEN_LUPINE);
+        hybrids.add(SKY_BLUE_LUPINE);
+        hybrids.add(MANHATTAN_LIGHTS_LUPINE);
         return hybrids;
     }
 
@@ -299,10 +279,6 @@ public class ModBlocks {
         return getHybridFlowers().contains(block);
     }
 
-    /**
-     * Returns true for flowers that cannot be bonemealed.
-     * Wild pansies (red, yellow, white, purple) and twinflower are not fertilizable.
-     */
     public static boolean isNonFertilizableFlower(Block block) {
         return block == RED_PANSIES ||
                block == YELLOW_PANSIES ||

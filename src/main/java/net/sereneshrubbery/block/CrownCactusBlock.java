@@ -17,6 +17,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.particle.ParticleTypes;
+import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.math.BlockPos;
@@ -74,14 +75,10 @@ public class CrownCactusBlock extends PlantBlock implements Fertilizable {
 
     @Override
     protected boolean canPlantOnTop(BlockState floor, BlockView world, BlockPos pos) {
-        return floor.isOf(Blocks.SAND) ||
-               floor.isOf(Blocks.RED_SAND) ||
-               floor.isOf(Blocks.TERRACOTTA) ||
-               floor.isOf(Blocks.GRASS_BLOCK) ||
-               floor.isOf(Blocks.DIRT) ||
-               floor.isOf(Blocks.COARSE_DIRT) ||
-               floor.isOf(Blocks.PODZOL) ||
-               floor.isOf(Blocks.FARMLAND);
+        return floor.isIn(BlockTags.DIRT) ||
+               floor.isIn(BlockTags.SAND) ||
+               floor.isOf(Blocks.FARMLAND) ||
+               floor.isOf(Blocks.TERRACOTTA);
     }
 
     //? if <1.21.2 {

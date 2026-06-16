@@ -16,6 +16,7 @@ import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.particle.ParticleTypes;
+import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.math.BlockPos;
@@ -66,15 +67,7 @@ public class TallModFlowerBlock extends PlantBlock implements Fertilizable {
 
     @Override
     protected boolean canPlantOnTop(BlockState floor, BlockView world, BlockPos pos) {
-        return floor.isOf(Blocks.GRASS_BLOCK) ||
-               floor.isOf(Blocks.DIRT) ||
-               floor.isOf(Blocks.COARSE_DIRT) ||
-               floor.isOf(Blocks.PODZOL) ||
-               floor.isOf(Blocks.FARMLAND) ||
-               floor.isOf(Blocks.ROOTED_DIRT) ||
-               floor.isOf(Blocks.MUD) ||
-               floor.isOf(Blocks.MUDDY_MANGROVE_ROOTS) ||
-               floor.isOf(Blocks.MOSS_BLOCK);
+        return floor.isIn(BlockTags.DIRT) || floor.isOf(Blocks.FARMLAND);
     }
 
     @Override

@@ -48,16 +48,16 @@ public class ButterflyBushParticle extends SpriteBillboardParticle {
         this.velocityZ = velocityZ + (this.random.nextDouble() - 0.5) * 0.02;
 
         float[][] colors = {
-            {1.0f, 0.3f, 0.3f},   // Red
-            {1.0f, 0.6f, 0.2f},   // Orange
-            {1.0f, 1.0f, 0.3f},   // Yellow
-            {0.5f, 1.0f, 0.3f},   // Lime
-            {0.3f, 1.0f, 0.5f},   // Green
-            {0.3f, 1.0f, 1.0f},   // Cyan
-            {0.3f, 0.6f, 1.0f},   // Sky blue
-            {0.6f, 0.3f, 1.0f},   // Purple
-            {1.0f, 0.3f, 1.0f},   // Magenta
-            {1.0f, 0.5f, 0.7f},   // Pink
+            {1.0f, 0.3f, 0.3f},
+            {1.0f, 0.6f, 0.2f},
+            {1.0f, 1.0f, 0.3f},
+            {0.5f, 1.0f, 0.3f},
+            {0.3f, 1.0f, 0.5f},
+            {0.3f, 1.0f, 1.0f},
+            {0.3f, 0.6f, 1.0f},
+            {0.6f, 0.3f, 1.0f},
+            {1.0f, 0.3f, 1.0f},
+            {1.0f, 0.5f, 0.7f},
         };
         int colorIndex = this.random.nextInt(colors.length);
         this.red = colors[colorIndex][0];
@@ -78,7 +78,6 @@ public class ButterflyBushParticle extends SpriteBillboardParticle {
             return;
         }
 
-        // Fluttering motion like a butterfly
         double time = this.age * 0.1;
         double flutter = Math.sin(time * 3) * 0.02;
         double drift = Math.cos(time * 2) * 0.01;
@@ -86,10 +85,8 @@ public class ButterflyBushParticle extends SpriteBillboardParticle {
         this.velocityX += flutter;
         this.velocityZ += drift;
 
-        // Slowly rise
         this.velocityY = 0.01 + Math.sin(time) * 0.005;
 
-        // Don't go too far from start position
         double distX = this.x - this.startX;
         double distZ = this.z - this.startZ;
         double maxDist = 2.0;
@@ -101,15 +98,12 @@ public class ButterflyBushParticle extends SpriteBillboardParticle {
             this.velocityZ -= Math.signum(distZ) * 0.01;
         }
 
-        // Move particle
         this.move(this.velocityX, this.velocityY, this.velocityZ);
 
-        // Slow down over time
         this.velocityX *= 0.98;
         this.velocityY *= 0.98;
         this.velocityZ *= 0.98;
 
-        // Fade out near end of life
         if (this.age > this.maxAge - 20) {
             this.alpha = (float)(this.maxAge - this.age) / 20.0f;
         }

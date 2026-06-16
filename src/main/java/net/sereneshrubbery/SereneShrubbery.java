@@ -2,6 +2,7 @@ package net.sereneshrubbery;
 
 import net.fabricmc.api.ModInitializer;
 import net.sereneshrubbery.block.BloomBasketBlock;
+import net.sereneshrubbery.event.ModAdvancementEvents;
 import net.sereneshrubbery.event.ModHybridBreeding;
 import net.sereneshrubbery.particle.ModParticleTypes;
 import net.sereneshrubbery.worldgen.ModBiomeModifications;
@@ -22,5 +23,6 @@ public class SereneShrubbery implements ModInitializer {
         ModComposting.register();
         ModParticleTypes.register();
         ModHybridBreeding.register();
+        ModAdvancementEvents.register();
     }
 }

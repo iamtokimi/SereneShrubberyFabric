@@ -17,14 +17,7 @@
   },
   "criteria": {
     "gardeners_path_0": {
-      "trigger": "minecraft:inventory_changed",
-      "conditions": {
-        "items": [
-          {
-            "items": "#serene_shrubbery:every_flower"
-          }
-        ]
-      }
+      "trigger": "minecraft:impossible"
     }
   }
 }
