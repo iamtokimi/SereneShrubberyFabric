@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "serene_shrubbery:indigo_butterfly_bush"
+    }
+  ],
+  "result": {
+    "id": "minecraft:blue_dye",
+    "count": 2
+  }
+}

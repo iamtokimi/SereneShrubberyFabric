@@ -1,9 +1,9 @@
 {
   "parent": "serene_shrubbery:custom/bloombasketflowers",
   "textures": {
-    "all": "serene_shrubbery:block/bloombasketfrostpansies",
-    "particle": "serene_shrubbery:block/bloombasketfrostpansies",
-    "1": "serene_shrubbery:block/bloombasketfrostpansies"
+    "all": "serene_shrubbery:block/bloombasketfrostpansies2",
+    "particle": "serene_shrubbery:block/bloombasketfrostpansies2",
+    "1": "serene_shrubbery:block/bloombasketfrostpansies2"
   },
   "render_type": "cutout"
 }

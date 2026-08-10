@@ -7,7 +7,6 @@
     "serene_shrubbery:white_pansies",
     "serene_shrubbery:purple_pansies",
     "serene_shrubbery:hydrangea",
-    "serene_shrubbery:purple_hydrangea",
     "serene_shrubbery:red_hydrangea",
     "serene_shrubbery:white_hydrangea",
     "serene_shrubbery:twinflower",
@@ -23,6 +22,9 @@
     "serene_shrubbery:purple_foxglove",
     "serene_shrubbery:white_foxglove",
     "serene_shrubbery:butterfly_bush",
+    "serene_shrubbery:white_butterfly_bush",
+    "serene_shrubbery:pink_butterfly_bush",
+    "serene_shrubbery:indigo_butterfly_bush",
     "serene_shrubbery:blanketflower"
   ]
 }

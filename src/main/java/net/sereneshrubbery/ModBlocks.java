@@ -48,6 +48,10 @@ public class ModBlocks {
     public static final Block BLOOM_BASKET_SUNRISE_PANSIES = registerBloomBasket("bloom_basket_sunrise_pansies");
     public static final Block BLOOM_BASKET_HALLOWEEN_PANSIES = registerBloomBasket("bloom_basket_halloween_pansies");
     public static final Block BLOOM_BASKET_PANOLA_PANSIES = registerBloomBasket("bloom_basket_panola_pansies");
+    public static final Block BLOOM_BASKET_TWINFLOWERS = registerBloomBasket("bloom_basket_twinflowers");
+    public static final Block BLOOM_BASKET_BLUE_ORCHIDS = registerBloomBasket("bloom_basket_blue_orchids");
+    public static final Block BLOOM_BASKET_ORANGE_CROWN_CACTI = registerBloomBasket("bloom_basket_orange_crown_cacti");
+    public static final Block BLOOM_BASKET_PINK_CROWN_CACTI = registerBloomBasket("bloom_basket_pink_crown_cacti");
 
     public static final Block HYDRANGEA = registerFlower("hydrangea");
     public static final Block PINK_HYDRANGEA = registerFlower("pink_hydrangea");
@@ -55,6 +59,7 @@ public class ModBlocks {
     public static final Block RED_HYDRANGEA = registerFlower("red_hydrangea");
     public static final Block WHITE_HYDRANGEA = registerFlower("white_hydrangea");
     public static final Block HALLOWEEN_HYDRANGEA = registerFlower("halloween_hydrangea");
+    public static final Block GREEN_HYDRANGEA = registerFlower("green_hydrangea");
 
     public static final Block WHITE_FOXGLOVE = registerTallFlower("white_foxglove");
     public static final Block PURPLE_FOXGLOVE = registerTallFlower("purple_foxglove");
@@ -82,6 +87,9 @@ public class ModBlocks {
 
     public static final Block FIREWEED = registerTallFlower("fireweed");
     public static final Block BUTTERFLY_BUSH = registerButterflyBush("butterfly_bush");
+    public static final Block WHITE_BUTTERFLY_BUSH = registerButterflyBush("white_butterfly_bush");
+    public static final Block PINK_BUTTERFLY_BUSH = registerButterflyBush("pink_butterfly_bush");
+    public static final Block INDIGO_BUTTERFLY_BUSH = registerButterflyBush("indigo_butterfly_bush");
     public static final Block TWINFLOWER = registerFlower("twinflower");
 
     private static Block registerFlower(String name) {
@@ -232,6 +240,7 @@ public class ModBlocks {
         flowers.add(RED_HYDRANGEA);
         flowers.add(WHITE_HYDRANGEA);
         flowers.add(HALLOWEEN_HYDRANGEA);
+        flowers.add(GREEN_HYDRANGEA);
         flowers.add(WHITE_FOXGLOVE);
         flowers.add(PURPLE_FOXGLOVE);
         flowers.add(PEACH_FOXGLOVE);
@@ -251,6 +260,9 @@ public class ModBlocks {
         flowers.add(BLANKETFLOWER);
         flowers.add(FIREWEED);
         flowers.add(BUTTERFLY_BUSH);
+        flowers.add(WHITE_BUTTERFLY_BUSH);
+        flowers.add(PINK_BUTTERFLY_BUSH);
+        flowers.add(INDIGO_BUTTERFLY_BUSH);
         flowers.add(TWINFLOWER);
         return flowers;
     }
@@ -264,6 +276,8 @@ public class ModBlocks {
         hybrids.add(PANOLA_PINK_PANSIES);
         hybrids.add(HALLOWEEN_PANSIES);
         hybrids.add(PINK_HYDRANGEA);
+        hybrids.add(PURPLE_HYDRANGEA);
+        hybrids.add(GREEN_HYDRANGEA);
         hybrids.add(HALLOWEEN_HYDRANGEA);
         hybrids.add(SUNSET_FOXGLOVE);
         hybrids.add(LAVENDER_FOXGLOVE);

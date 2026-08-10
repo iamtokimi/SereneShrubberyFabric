@@ -1,6 +1,9 @@
-{
+﻿{
   "variants": {
-    "": {
+    "player_placed=false": {
+      "model": "serene_shrubbery:block/yellow_pansies"
+    },
+    "player_placed=true": {
       "model": "serene_shrubbery:block/yellow_pansies"
     }
   }

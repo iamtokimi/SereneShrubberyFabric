@@ -11,6 +11,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.sereneshrubbery.ModBlocks;
 import net.sereneshrubbery.SereneShrubbery;
+import net.sereneshrubbery.block.FlowerProperties;
 import net.sereneshrubbery.data.BreedingTimerState;
 
 import java.util.*;
@@ -47,6 +48,8 @@ public class ModHybridBreeding {
         addHybridRecipe(ModBlocks.PINK_PANSIES, ModBlocks.WHITE_PANSIES, ModBlocks.PANOLA_PINK_PANSIES);
 
         addHybridRecipe(ModBlocks.RED_HYDRANGEA, ModBlocks.WHITE_HYDRANGEA, ModBlocks.PINK_HYDRANGEA);
+        addHybridRecipe(ModBlocks.HYDRANGEA, ModBlocks.WHITE_HYDRANGEA, ModBlocks.GREEN_HYDRANGEA);
+        addHybridRecipe(ModBlocks.HYDRANGEA, ModBlocks.RED_HYDRANGEA, ModBlocks.PURPLE_HYDRANGEA);
 
         addHalloweenRecipe(ModBlocks.PURPLE_PANSIES, ModBlocks.ORANGE_PANSIES, ModBlocks.HALLOWEEN_PANSIES);
         addHalloweenRecipe(ModBlocks.PURPLE_FOXGLOVE, ModBlocks.SUNSET_FOXGLOVE, ModBlocks.HALLOWEEN_FOXGLOVE);
@@ -84,6 +87,10 @@ public class ModHybridBreeding {
     }
 
     public static void tryBreedOnRandomTick(ServerWorld world, BlockPos pos, Block centerFlower) {
+        if (!isPlayerPlacedFlower(world.getBlockState(pos))) {
+            return;
+        }
+
         BreedingResult potentialResult = findBreedingPartner(world, pos, centerFlower);
 
         BreedingTimerState timerState = BreedingTimerState.getServerState(world);
@@ -127,7 +134,11 @@ public class ModHybridBreeding {
 
         timerState.removeTimer(key);
 
-        world.setBlockState(offspringPos, potentialResult.offspring.getDefaultState());
+        BlockState offspringState = potentialResult.offspring.getDefaultState();
+        if (offspringState.contains(FlowerProperties.PLAYER_PLACED)) {
+            offspringState = offspringState.with(FlowerProperties.PLAYER_PLACED, true);
+        }
+        world.setBlockState(offspringPos, offspringState);
 
         world.spawnParticles(ParticleTypes.HAPPY_VILLAGER,
             offspringPos.getX() + 0.5, offspringPos.getY() + 0.5, offspringPos.getZ() + 0.5,
@@ -161,8 +172,9 @@ public class ModHybridBreeding {
 
         List<Block> adjacentFlowers = new ArrayList<>();
         for (BlockPos adjPos : adjacentPositions) {
-            Block adjacentFlower = world.getBlockState(adjPos).getBlock();
-            if (isHybridizableFlower(adjacentFlower)) {
+            BlockState adjacentState = world.getBlockState(adjPos);
+            Block adjacentFlower = adjacentState.getBlock();
+            if (isHybridizableFlower(adjacentFlower) && isPlayerPlacedFlower(adjacentState)) {
                 adjacentFlowers.add(adjacentFlower);
             }
         }
@@ -232,6 +244,11 @@ public class ModHybridBreeding {
 
     public static boolean isHybridizableFlower(Block block) {
         return ModBlocks.getAllFlowers().contains(block);
+    }
+
+    public static boolean isPlayerPlacedFlower(BlockState state) {
+        return state.contains(FlowerProperties.PLAYER_PLACED)
+            && state.get(FlowerProperties.PLAYER_PLACED);
     }
 
     private static BlockPos findEmptyAdjacentSpace(World world, BlockPos centerPos) {

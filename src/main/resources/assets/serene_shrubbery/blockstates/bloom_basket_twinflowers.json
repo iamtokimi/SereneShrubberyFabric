@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "serene_shrubbery:block/bloom_basket_twinflowers"
+    },
+    "facing=east": {
+      "model": "serene_shrubbery:block/bloom_basket_twinflowers",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "serene_shrubbery:block/bloom_basket_twinflowers",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "serene_shrubbery:block/bloom_basket_twinflowers",
+      "y": 270
+    }
+  }
+}

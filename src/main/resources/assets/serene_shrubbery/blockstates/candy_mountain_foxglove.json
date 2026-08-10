@@ -1,6 +1,9 @@
-{
+﻿{
   "variants": {
-    "": {
+    "player_placed=false": {
+      "model": "serene_shrubbery:block/candy_mountain_foxglove"
+    },
+    "player_placed=true": {
       "model": "serene_shrubbery:block/candy_mountain_foxglove"
     }
   }

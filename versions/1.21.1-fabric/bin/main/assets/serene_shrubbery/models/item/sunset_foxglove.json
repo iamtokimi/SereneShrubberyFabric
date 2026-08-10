@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "serene_shrubbery:item/sunsetfoxglove"
+    "layer0": "serene_shrubbery:item/sunrisefoxglove2"
   }
 }

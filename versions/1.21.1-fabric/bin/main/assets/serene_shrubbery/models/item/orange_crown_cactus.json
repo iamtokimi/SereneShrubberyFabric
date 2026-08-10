@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "serene_shrubbery:item/orangecrowncactus"
+    "layer0": "serene_shrubbery:item/crowncactusorange"
   }
 }

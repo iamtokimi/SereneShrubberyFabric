@@ -14,11 +14,13 @@ import net.minecraft.block.PlantBlock;
 import net.minecraft.block.ShapeContext;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.BlockSoundGroup;
+import net.minecraft.state.StateManager;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.util.shape.VoxelShape;
@@ -46,6 +48,7 @@ public class ModFlowerBlock extends PlantBlock implements Fertilizable {
             /*.dropsNothing()
             *///?}
         );
+        setDefaultState(getStateManager().getDefaultState().with(FlowerProperties.PLAYER_PLACED, false));
     }
     //?} else {
     /*public ModFlowerBlock() {
@@ -54,8 +57,20 @@ public class ModFlowerBlock extends PlantBlock implements Fertilizable {
             .noCollision()
             .breakInstantly()
             .ticksRandomly());
+        setDefaultState(getStateManager().getDefaultState().with(FlowerProperties.PLAYER_PLACED, false));
     }
     *///?}
+
+    @Override
+    protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
+        builder.add(FlowerProperties.PLAYER_PLACED);
+    }
+
+    @Nullable
+    @Override
+    public BlockState getPlacementState(ItemPlacementContext ctx) {
+        return getDefaultState().with(FlowerProperties.PLAYER_PLACED, true);
+    }
 
     @Override
     //? if >=1.21.2 {

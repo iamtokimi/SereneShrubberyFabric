@@ -7,9 +7,7 @@ import org.jetbrains.annotations.Nullable;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-//? if <1.21 {
-/*import net.minecraft.block.Blocks;
-*///?}
+import net.minecraft.block.Blocks;
 import net.minecraft.block.ShapeContext;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -56,6 +54,10 @@ public class BloomBasketBlock extends Block {
         PANSY_TO_BASKET.put(ModBlocks.SUNRISE_PANSIES.asItem(), ModBlocks.BLOOM_BASKET_SUNRISE_PANSIES);
         PANSY_TO_BASKET.put(ModBlocks.HALLOWEEN_PANSIES.asItem(), ModBlocks.BLOOM_BASKET_HALLOWEEN_PANSIES);
         PANSY_TO_BASKET.put(ModBlocks.PANOLA_PINK_PANSIES.asItem(), ModBlocks.BLOOM_BASKET_PANOLA_PANSIES);
+        PANSY_TO_BASKET.put(ModBlocks.TWINFLOWER.asItem(), ModBlocks.BLOOM_BASKET_TWINFLOWERS);
+        PANSY_TO_BASKET.put(Blocks.BLUE_ORCHID.asItem(), ModBlocks.BLOOM_BASKET_BLUE_ORCHIDS);
+        PANSY_TO_BASKET.put(ModBlocks.ORANGE_CROWN_CACTUS.asItem(), ModBlocks.BLOOM_BASKET_ORANGE_CROWN_CACTI);
+        PANSY_TO_BASKET.put(ModBlocks.PINK_CROWN_CACTUS.asItem(), ModBlocks.BLOOM_BASKET_PINK_CROWN_CACTI);
 
         BASKET_TO_PANSY.put(ModBlocks.BLOOM_BASKET_RED_PANSIES, ModBlocks.RED_PANSIES.asItem());
         BASKET_TO_PANSY.put(ModBlocks.BLOOM_BASKET_WHITE_PANSIES, ModBlocks.WHITE_PANSIES.asItem());
@@ -67,6 +69,10 @@ public class BloomBasketBlock extends Block {
         BASKET_TO_PANSY.put(ModBlocks.BLOOM_BASKET_SUNRISE_PANSIES, ModBlocks.SUNRISE_PANSIES.asItem());
         BASKET_TO_PANSY.put(ModBlocks.BLOOM_BASKET_HALLOWEEN_PANSIES, ModBlocks.HALLOWEEN_PANSIES.asItem());
         BASKET_TO_PANSY.put(ModBlocks.BLOOM_BASKET_PANOLA_PANSIES, ModBlocks.PANOLA_PINK_PANSIES.asItem());
+        BASKET_TO_PANSY.put(ModBlocks.BLOOM_BASKET_TWINFLOWERS, ModBlocks.TWINFLOWER.asItem());
+        BASKET_TO_PANSY.put(ModBlocks.BLOOM_BASKET_BLUE_ORCHIDS, Blocks.BLUE_ORCHID.asItem());
+        BASKET_TO_PANSY.put(ModBlocks.BLOOM_BASKET_ORANGE_CROWN_CACTI, ModBlocks.ORANGE_CROWN_CACTUS.asItem());
+        BASKET_TO_PANSY.put(ModBlocks.BLOOM_BASKET_PINK_CROWN_CACTI, ModBlocks.PINK_CROWN_CACTUS.asItem());
     }
 
     //? if >=1.21 {

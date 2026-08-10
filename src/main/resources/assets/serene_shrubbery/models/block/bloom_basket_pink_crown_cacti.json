@@ -1,0 +1,9 @@
+{
+  "parent": "serene_shrubbery:custom/bloombasketcacti",
+  "textures": {
+    "all": "serene_shrubbery:block/bloombasketpinkcrowncactus",
+    "particle": "serene_shrubbery:block/bloombasketpinkcrowncactus",
+    "1": "serene_shrubbery:block/bloombasketpinkcrowncactus"
+  },
+  "render_type": "cutout"
+}

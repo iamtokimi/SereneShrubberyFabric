@@ -1,0 +1,9 @@
+{
+  "parent": "serene_shrubbery:custom/butterflybushredone",
+  "textures": {
+    "all": "serene_shrubbery:block/butterflybushindigo",
+    "particle": "serene_shrubbery:block/butterflybushindigo",
+    "0": "serene_shrubbery:block/butterflybushindigo"
+  },
+  "render_type": "cutout"
+}

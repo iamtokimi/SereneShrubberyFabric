@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "serene_shrubbery:white_butterfly_bush"
+    }
+  ],
+  "result": {
+    "item": "minecraft:white_dye",
+    "count": 2
+  }
+}

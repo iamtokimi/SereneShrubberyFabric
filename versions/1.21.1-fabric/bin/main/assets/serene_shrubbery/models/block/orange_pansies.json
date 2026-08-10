@@ -1,9 +1,9 @@
 {
   "parent": "serene_shrubbery:custom/pansies",
   "textures": {
-    "all": "serene_shrubbery:block/orangepansies2",
-    "particle": "serene_shrubbery:block/orangepansies2",
-    "0": "serene_shrubbery:block/orangepansies2"
+    "all": "serene_shrubbery:block/pansiesorangeredone",
+    "particle": "serene_shrubbery:block/pansiesorangeredone",
+    "0": "serene_shrubbery:block/pansiesorangeredone"
   },
   "render_type": "cutout"
 }
