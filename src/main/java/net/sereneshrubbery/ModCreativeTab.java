@@ -38,7 +38,11 @@ public class ModCreativeTab {
                block == ModBlocks.BLOOM_BASKET_FROST_PANSIES ||
                block == ModBlocks.BLOOM_BASKET_SUNRISE_PANSIES ||
                block == ModBlocks.BLOOM_BASKET_HALLOWEEN_PANSIES ||
-               block == ModBlocks.BLOOM_BASKET_PANOLA_PANSIES;
+               block == ModBlocks.BLOOM_BASKET_PANOLA_PANSIES ||
+               block == ModBlocks.BLOOM_BASKET_TWINFLOWERS ||
+               block == ModBlocks.BLOOM_BASKET_BLUE_ORCHIDS ||
+               block == ModBlocks.BLOOM_BASKET_ORANGE_CROWN_CACTI ||
+               block == ModBlocks.BLOOM_BASKET_PINK_CROWN_CACTI;
     }
 
     private static void addBlockItem(ItemGroup.Entries entries, Block block) {
